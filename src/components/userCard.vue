@@ -8,24 +8,24 @@
 
         <body>
             <div class="user-card">
-                <img src="./assets/70.jpg" class="user-photo">
-                <p class="user-nickname">romashka</p>
+                <img src="./assets/{{photoLink}}" class="user-photo">
+                <p class="user-nickname">{{nick}}</p>
                 <p class="user-name">
-                    Иванов Иван<br>
-                    Иванович
+                    {{name}} {{surname}}<br>
+                    {{patronymic}}
                 </p>
                 <hr>
                 <p class="user-info-item">
                     <img src="./assets/location.png">
-                    Москва, Юбилейная 50
+                    {{address}}
                 </p>
                 <p class="user-info-item">
                     <img src="./assets/mail.png">
-                    coldrabbit48@example.com
+                    {{email}}
                 </p>
                 <p class="user-info-item">
                     <img src="./assets/phone.png">
-                    +7-495-266-57-34
+                    {{phoneNum}}
                 </p>
             </div>
         </body>
@@ -33,7 +33,21 @@
 </template>
 
 <script>
-
+    export default{
+        name: 'userCard',
+        props(){
+            return {
+                photoLink: '',
+                nick: '',
+                name: '',
+                surname: '',
+                patronymic: '',
+                address: '',
+                email: '',
+                phoneNum: ''
+            }
+        }
+    }
 </script>
 
 <style>
