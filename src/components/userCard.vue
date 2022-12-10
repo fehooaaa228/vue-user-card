@@ -1,14 +1,6 @@
 <template>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>User Card</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-
-        <body>
             <div class="user-card">
-                <img src="./assets/{{photoLink}}" class="user-photo">
+                <img v-bind:src="photoLink" class="user-photo">
                 <p class="user-nickname">{{nick}}</p>
                 <p class="user-name">
                     {{name}} {{surname}}<br>
@@ -16,37 +8,33 @@
                 </p>
                 <hr>
                 <p class="user-info-item">
-                    <img src="./assets/location.png">
+                    <img src="../assets/location.png">
                     {{address}}
                 </p>
                 <p class="user-info-item">
-                    <img src="./assets/mail.png">
+                    <img src="../assets/mail.png">
                     {{email}}
                 </p>
                 <p class="user-info-item">
-                    <img src="./assets/phone.png">
+                    <img src="../assets/phone.png">
                     {{phoneNum}}
                 </p>
             </div>
-        </body>
-    </html>
 </template>
 
 <script>
     export default{
         name: 'userCard',
-        props(){
-            return {
-                photoLink: '',
-                nick: '',
-                name: '',
-                surname: '',
-                patronymic: '',
-                address: '',
-                email: '',
-                phoneNum: ''
-            }
-        }
+        props: [
+            'photoLink',
+            'nick',
+            'name',
+            'surname',
+            'patronymic',
+            'address',
+            'email',
+            'phoneNum'
+        ]
     }
 </script>
 
@@ -65,6 +53,7 @@
     .user-card .user-photo {
         box-sizing: border-box;
         height: 150px;
+        width: 150px;
         margin-top: -100px;
         border-radius: 50%;
         border: 3px solid #ccc;
